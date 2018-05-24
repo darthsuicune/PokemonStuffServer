@@ -20,7 +20,7 @@ func writeResponse(writer http.ResponseWriter, toWrite ...interface{}) {
 	enc.Encode(toWrite)
 }
 
-func getStats(w http.ResponseWriter, r *http.Request) {
+func getStats(w http.ResponseWriter, _ *http.Request) {
 	w.WriteHeader(200)
 	writeResponse(w, getDex())
 }
