@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 	"log"
-	"github.com/darthsuicune/pogo-raids-web/raids"
-	"github.com/darthsuicune/pogo-raids-web/dex"
+	"github.com/darthsuicune/PokemonStuffServer/dex"
+	"github.com/darthsuicune/PokemonStuffServer/raids"
 )
 
 func main() {

@@ -12,15 +12,15 @@ func AddRoutes() {
 
 func getVersion(w http.ResponseWriter, _ *http.Request) {
 	w.WriteHeader(200)
-	w.Write([]byte (findVersion()))
+	writeResponse(w, findVersion())
+
+}
+func writeResponse(writer http.ResponseWriter, toWrite ...interface{}) {
+	enc := json.NewEncoder(writer)
+	enc.Encode(toWrite)
 }
 
 func getStats(w http.ResponseWriter, r *http.Request) {
-	var mon1 = Pokemon{0,0,0,0}
-	var mon2 = Pokemon{1,1,1,1}
-	var mons = &Pokedex{
-		[]Pokemon{mon1, mon2},
-	}
-	enc := json.NewEncoder(w)
-	enc.Encode(mons)
+	w.WriteHeader(200)
+	writeResponse(w, getDex())
 }

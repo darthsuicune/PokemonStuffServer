@@ -1,7 +1,10 @@
 package dex
 
+import "fmt"
+
 type Pokedex struct {
-	Pokemon_stats []Pokemon `json:"mon_stats"`
+	Version Version `json:"version"`
+	Stats []Pokemon `json:"mon_stats"`
 }
 
 type Pokemon struct {
@@ -14,5 +17,16 @@ type Pokemon struct {
 type Version int
 
 func findVersion() string {
-	return "0"
+	var dex = getDex()
+	return fmt.Sprintf("%v", dex.Version)
+}
+
+func getDex() Pokedex {
+	var mon1 = Pokemon{0,0,0,0}
+	var mon2 = Pokemon{1,1,1,1}
+	return Pokedex{
+		Version: 0,
+		Stats: []Pokemon{mon1, mon2},
+	}
+
 }
