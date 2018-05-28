@@ -3,14 +3,14 @@ package db
 type Version int
 
 type Pokedex struct {
-	Version Version `json:"version"`
-	Stats []Pokemon `json:"mon_stats"`
+	Version Version   `json:"version"`
+	Stats   []Pokemon `json:"mon_stats"`
 }
 
 type Pokemon struct {
-	Id int `json:"id"`
-	Form int`json:"form"`
-	Attack int `json:"attack"`
+	Id      int `json:"id"`
+	Form    int `json:"form"`
+	Attack  int `json:"attack"`
 	Defense int `json:"defense"`
 	Stamina int `json:"stamina"`
 }
@@ -19,8 +19,8 @@ const version = 0
 const dexQuery = "SELECT id, form, attack, defense, stamina FROM pokemon"
 
 func GetDex() Pokedex {
-	pokedex := Pokedex {
-		Version: 0,
+	pokedex := Pokedex{
+		Version: version,
 	}
 	database := OpenDb()
 

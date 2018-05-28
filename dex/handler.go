@@ -15,7 +15,7 @@ func getVersion(w http.ResponseWriter, _ *http.Request) {
 	writeResponse(w, findVersion())
 
 }
-func writeResponse(writer http.ResponseWriter, toWrite ...interface{}) {
+func writeResponse(writer http.ResponseWriter, toWrite interface{}) {
 	enc := json.NewEncoder(writer)
 	enc.Encode(toWrite)
 }
