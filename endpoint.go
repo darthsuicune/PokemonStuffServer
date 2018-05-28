@@ -12,6 +12,6 @@ func main() {
 	db.CreateDbIfNeeded()
 	raids.AddRoutes()
 	dex.AddRoutes()
-	println("Listening on port :8008")
+	println("Listening on http://localhost:8008")
 	log.Fatal(http.ListenAndServe(":8008", nil))
 }
